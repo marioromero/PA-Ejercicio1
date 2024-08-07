@@ -2,8 +2,11 @@
 
 namespace Bases
 {
+    //nombre de clase
     public class Variables
     {
+
+        //método
         public void EjecutarCodigo()
         {
             // Definición de variables
