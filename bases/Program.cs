@@ -22,10 +22,14 @@ namespace Bases
 
 
             //variables.EjecutarCodigo();  
-            operadores.EjecutarCodigo();
+            //operadores.EjecutarCodigo();
             //condicionales.EjecutarCodigo();
             //ciclos.EjecutarCodigo();
             //arrays.EjecutarCodigo();
+
+            EjericioEnClases e = new EjericioEnClases();
+            e.EjecutarCodigo();
+
         }
     }
 }

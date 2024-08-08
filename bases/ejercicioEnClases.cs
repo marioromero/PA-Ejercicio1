@@ -6,17 +6,52 @@ namespace Bases
     {
         public void EjecutarCodigo()
         {
+            int[] conteoCalificaciones = new int[10];
+            int sumaCalificaciones = 0;
+            int totalClientes = 20;
 
-            //Una empresa desea hacer una encuesta de satisfacción a 20 clientes.
-            //Para ello, se les pedirá que califiquen el servicio que recibieron en una escala del 1 al 10.
-            //Al finalizar la encuesta, se desea saber cuantos clientes calificaron con un 10, cuantos con un 9, cuantos con un 8, etc.
-            //Además, se desea saber el promedio de calificación de los clientes.
-            //Cuando el cliente ingrese un valor menor a 1 o mayor a 10, se debe mostrar un mensaje de error y volver a pedir la calificación.
+            for (int i = 0; i < totalClientes; i++)
+            {
+                int calificacion = 0;
+                bool calificacionValida = false;
 
+                while (!calificacionValida)
+                {
+                    try
+                    {
+                        Console.Write($"Ingrese la calificación del cliente {i + 1} (1-10): ");
+                        calificacion = int.Parse(Console.ReadLine());
 
+                        if (calificacion >= 1 && calificacion <= 10)
+                        {
+                            calificacionValida = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Error: La calificación debe estar entre 1 y 10.");
+                        }
+                    }
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Error: Debe ingresar un número válido.");
+                    }
+                }
 
+                conteoCalificaciones[calificacion - 1]++;
+                sumaCalificaciones += calificacion;
+            }
 
+            Console.WriteLine("");
+            Console.WriteLine("Resultados de la encuesta:");
+
+            for (int i = 0; i < conteoCalificaciones.Length; i++)
+            {
+                Console.WriteLine($"Calificaciones de {i + 1}: {conteoCalificaciones[i]} clientes");
+            }
+
+            double promedio = (double)sumaCalificaciones / totalClientes;
+            Console.WriteLine("");
+            Console.WriteLine($"Promedio de calificaciones: {promedio:F2}");
         }
-  
     }
 }
